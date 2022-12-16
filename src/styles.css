@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+input.ng-invalid.ng-touched{
+    border: 2px solid red;
+}
+input.ng-valid.ng-touched{
+    border: 2px solid green;
+}
+.error{
+    color: red;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+}
+th{
+    background-color: #202121;
+    color: white;
+}
+td{
+    padding: 8px;
+    color: blue;
+}
+tr:nth-child(even) {background-color:aqua;}

@@ -1,0 +1,51 @@
+    <!--
+    <form>
+
+        contact name : <input type="text" name="contactName" [(ngModel)]="contact.contactName"/><br/>
+        contact email : <input type="text" name="contactEmail" [(ngModel)]="contact.contactEmail"/><br/>
+        contact number : <input type="text" name="contactNumber" [(ngModel)]="contact.contactNumber"/><br/>
+        <input type="button" value="save" (click)="saveContact()"/>
+
+    </form>
+
+    -->
+    <br/><br/>
+    <form #createContactForm="ngForm" class="form-control" (ngSubmit)="saveContact()">
+
+        <div class="form-group container">
+            <label>contact name</label>
+            
+            <input type="text" class="form-control" required minlength="3" maxlength="10" name="contactName" [(ngModel)]="contact.contactName" id="contactName">
+             <div class="alert alert-danger" *ngIf="contact.contactName.touched && !contact.contactName.valid">
+                <div *ngIf="contact.contactName.error && contact.contactName.error['required']"> please enter name</div>
+                <div *ngIf="contact.contactName.error && contact.contactName.error['minlength']"> altlest 3 charaters</div>
+                <div *ngIf="contact.contactName.error && contact.contactName.error['maxlength']"> most 10 charaters</div>
+             </div>
+        </div>
+        <div class="form-group container">
+            <label>contact email</label>
+            
+             <input type="email" class="form-control" required  name="contactEmail" [(ngModel)]="contact.contactEmail"   email="true" #prmEmail="ngModel">
+             <div class="alert alert-danger" *ngIf="contact.contactEmail.touched && !contact.contactEmail.valid">
+                <div *ngIf="prmEmail.errors?.['email']"> Primary email address is not valid. </div>
+            </div>
+        </div>
+
+        <div class="form-group container">
+            <label>contact number</label>
+            
+            <input type="text" class="form-control" required  minlength="10" maxlength="12" name="contactNumber" [(ngModel)]="contact.contactNumber" id="contactNumber">
+             <div class="alert alert-danger" *ngIf="contact.contactNumber.touched && !contact.contactNumber.valid">
+                <div *ngIf="contact.contactNumber.error && contact.contactNumber.error['required']"> please enter number</div>
+                <div *ngIf="contact.contactNumber.error && contact.contactNumber.error['minlength']"> altlest 10 </div>
+                <div *ngIf="contact.contactNumber.error && contact.contactNumber.error['maxlength']"> most 12 </div>
+             </div>
+        </div>
+        <button class="btn btn-primary m-4" type="submit" [class.disabled]="!createContactForm.valid">save</button>
+        
+
+        
+
+
+
+    </form>  

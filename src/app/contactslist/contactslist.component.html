@@ -1,0 +1,25 @@
+   
+ <br/><br/>
+    <table>
+        <thead>
+            <tr>
+                <th>contactId</th>
+                <th>contactName</th>
+                <th>contactEmail</th>
+                <th>contactNumber</th>
+                <th>action</th>
+             </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let contact of contacts">
+                <td>{{contact.contactId}}</td>
+                <td>{{contact.contactName}}</td>
+                <td>{{contact.contactEmail}}</td>
+                <td>{{contact.contactNumber}}</td>
+                <td><input type="button" value="edit"  (click)="editContact(contact.contactId)" >
+                    &nbsp;
+                <input type="button"  value="delete"  (click)="deleteContact(contact.contactId)" /></td>
+            </tr>
+
+        </tbody>
+    </table>
